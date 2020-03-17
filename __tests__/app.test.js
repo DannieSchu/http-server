@@ -11,20 +11,20 @@ describe('app routes', () => {
         );
       });
   });
-  // it('creates echo json', () => {
-  //   return request(app)
-  //     .post('/echo')
-  //     .then(res => {
-  //       expect(res.body).toEqual(
-  //         `<html>
-  //         <body>
-  //           <h1>HELLO Hello hello</h1>
-  //         </body>
-  //       </html>`
-  //       );
-  //     });
-  // });
-  it('retrieves red', () => {
+  it('creates echo html', () => {
+    return request(app)
+      .post('/echo')
+      .then(res => {
+        expect(res.text).toEqual(`
+        <html>
+          <body>
+            <h1>HELLO Hello hello</h1>
+          </body>
+        </html>`
+        );
+      });
+  });
+  it('retrieves red html', () => {
     return request(app)
       .get('/red')
       .then(res => {
@@ -37,7 +37,7 @@ describe('app routes', () => {
         );
       });
   });
-  it('retrieves green', () => {
+  it('retrieves green html', () => {
     return request(app)
       .get('/green')
       .then(res => {
@@ -50,7 +50,7 @@ describe('app routes', () => {
         );
       });
   });
-  it('retrieves blue', () => {
+  it('retrieves blue html', () => {
     return request(app)
       .get('/blue')
       .then(res => {
